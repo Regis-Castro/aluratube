@@ -1,11 +1,13 @@
 import styled from "styled-components"
+import Search from "./components/search"
 
-function Menu() {
+function Menu({valorDoFiltro, setValorDoFiltro}) {
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
+        <Search valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro}/>
     </StyledMenu>
   );
 }

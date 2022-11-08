@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-function Timeline(props) {
+function Timeline({searchValue, ...props}) {
 
   const playlistNames = Object.keys(props.playlists)
 
@@ -10,12 +10,18 @@ function Timeline(props) {
         const videos = props.playlists[playlistName]
 
         return (
-          <section>
+          <section key={playlistName}>
             <h2>{playlistName}</h2>
             <div>
-              {videos.map((video) => {
+              {videos.filter((video) => {
+                const titleNormalized = video.title.toLowerCase()
+                const searchValueNormalized = searchValue.toLowerCase()
+          
+                return titleNormalized.includes(searchValueNormalized)
+
+              }).map((video) => {
                 return (
-                  <a href={video.url}>
+                  <a key={video.url} href={video.url}>
                     <img src={video.thumb} />
                     <p>
                       {video.title}
@@ -79,11 +85,10 @@ const StyledTimeline = styled.div`
       color: ${({ theme }) => theme.textColorBase || "#222222"};
     }
   }
-  
 }
-  div::-webkit-scrollbar {
+  /* div::-webkit-scrollbar {
     display: none;
-  }
+  } */
 }
 `
 

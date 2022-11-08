@@ -4,7 +4,7 @@ import styled from 'styled-components'
 function Header() {
   return (
     <StyledHeader>
-      {/* <img src="banner" /> */}
+     <StyledBanner />
 
       <section className='user-info'>
         <img src={`https://github.com/${config.github}.png`} />
@@ -22,6 +22,12 @@ function Header() {
   )
 }
 
+const StyledBanner = styled.div`
+  background-image: url(${config.background});
+  background-position: center;
+  height: 230px;
+` 
+
 const StyledHeader = styled.div`
   img {
     width: 80px;
@@ -33,7 +39,6 @@ const StyledHeader = styled.div`
     align-items: center;
     display: flex;
     gap: 16px;
-    margin-top: 50px;
     padding: 16px 32px;
     width: 100%;
   }
