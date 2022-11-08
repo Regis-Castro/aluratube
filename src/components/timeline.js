@@ -33,6 +33,7 @@ function Timeline(props) {
 
 
 const StyledTimeline = styled.div`
+
   flex: 1;
   width: 100%;
   padding: 16px;
@@ -78,7 +79,11 @@ const StyledTimeline = styled.div`
       color: ${({ theme }) => theme.textColorBase || "#222222"};
     }
   }
+  
 }
+  div::-webkit-scrollbar {
+    display: none;
+  }
 }
 `
 
